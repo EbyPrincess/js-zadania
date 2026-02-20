@@ -1,11 +1,30 @@
-function getSumOfSequence(number) {
-  const arr = [];
+const peopleWaiting = [
+  "Кристина",
+  "Олег",
+  "Кирилл",
+  "Мария",
+  "Светлана",
+  "Артем",
+  "Глеб",
+];
 
-  for (let i = 1; i <= number; i++) {
-    arr.push(i);
-  }
-
-  return arr[0] + arr[arr.length - 1];
+function giveParcel() {
+  const name = peopleWaiting.shift();
+  alert(
+    `${name} получил(а) посылку. В очереди осталось ${peopleWaiting.length} человек.`,
+  );
 }
 
-console.log(getSumOfSequence(5));
+function leaveQueueWithoutParcel() {
+  const name = peopleWaiting.pop();
+  alert(`${name} не получил(а) посылку и ушел(ла) из очереди`);
+}
+
+giveParcel();
+giveParcel();
+
+giveParcel();
+
+while (peopleWaiting.length > 0) {
+  leaveQueueWithoutParcel();
+}
